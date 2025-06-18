@@ -52,9 +52,9 @@ public:
 
     vector<MOVE> randomShuffleCube(unsigned int times);
 
-    GenericRubiksCube &move(MOVE ind);
+    void move(MOVE ind);
 
-    GenericRubiksCube &invert(MOVE ind);
+    void invert(MOVE ind);
 
     /*
      * Rotational Moves on the Rubik Cubes

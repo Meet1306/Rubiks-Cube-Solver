@@ -1,8 +1,12 @@
 #include <bits\stdc++.h>
 using namespace std;
 
+#include "Models/Rubiks_3D_Model.h"
 
 int main() {
-    cout<<"Hello World"<<endl;
+
+
+
+
     return 0;
 }

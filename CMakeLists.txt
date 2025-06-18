@@ -6,4 +6,4 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(Rubiks_Cube_Solver main.cpp
         Models/GenericRubiksCube.cpp
         Models/GenericRubiksCube.h
-        Models/Rubiks_3d_model.cpp)
+        Models/Rubiks_3d_model.h)
