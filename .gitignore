@@ -1,0 +1,36 @@
+# === CLion project files ===
+.idea/
+*.iml
+
+# === CMake build folders ===
+cmake-build-*/
+build/
+CMakeFiles/
+CMakeCache.txt
+Makefile
+compile_commands.json
+CTestTestfile.cmake
+Testing/
+install_manifest.txt
+
+# === OS-generated files ===
+.DS_Store
+Thumbs.db
+
+# === Compiled binaries and object files ===
+*.o
+*.obj
+*.so
+*.dll
+*.exe
+*.out
+*.a
+*.lib
+
+# === Logs and temporary files ===
+*.log
+*.tmp
+*.swp
+
+# === Backup files ===
+*~
