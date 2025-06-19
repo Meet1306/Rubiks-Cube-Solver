@@ -211,31 +211,26 @@ private:
         {
             //top from front
             rubiks_cube[0][i][2] = rubiks_cube[2][i][2];
+        }
 
+        for (int i = 0; i < 3; i++)
+        {
             //front from down
             rubiks_cube[2][i][2] = rubiks_cube[5][i][2];
+        }
 
+        for (int i = 0; i < 3; i++)
+        {
             //down from back
             rubiks_cube[5][i][2] = rubiks_cube[4][2-i][0];
+        }
 
+        for (int i = 0; i < 3; i++)
+        {
             //back from top
             rubiks_cube[4][i][0] = top[2-i];
         }
 
-        // char top[3], front[3], down[3], back[3];
-        // for (int i = 0; i < 3; i++) {
-        //     top[i]   = rubiks_cube[0][i][2];
-        //     front[i] = rubiks_cube[2][i][2];
-        //     down[i]  = rubiks_cube[5][i][2];
-        //     back[i]  = rubiks_cube[4][2 - i][0];
-        // }
-        //
-        // for (int i = 0; i < 3; i++) {
-        //     rubiks_cube[0][i][2]     = front[i];        // top <- front
-        //     rubiks_cube[2][i][2]     = down[i];         // front <- down
-        //     rubiks_cube[5][i][2]     = back[i];         // down <- back
-        //     rubiks_cube[4][2 - i][0] = top[i];          // back <- top
-        // }
     }
 
     void rPrime() override

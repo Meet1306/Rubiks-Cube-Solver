@@ -5,17 +5,11 @@ using namespace std;
 
 int main() {
     Rubiks_3D_Model cube;
-    cube.move(GenericRubiksCube::MOVE::R);
-    cube.print();
-    // vector<GenericRubiksCube::MOVE> moves = cube.randomShuffleCube(10);
-    // for (auto i : moves)
-    // {
-    //     cout<<GenericRubiksCube::getMove(i)<<" ";
-    // }
-    // cout<<endl;
+    // cube.move(GenericRubiksCube::MOVE::R);
     // cube.print();
-
-
+    vector<GenericRubiksCube::MOVE> moves = cube.randomShuffleCube(10);
+    cube.print();
+    if (cube.isSolved()) cout<<"Solved"<<endl;
 
 
     return 0;

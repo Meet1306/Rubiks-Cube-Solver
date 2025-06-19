@@ -210,8 +210,8 @@ vector<GenericRubiksCube::MOVE> GenericRubiksCube::randomShuffleCube(int times) 
         unsigned int selectMove = (rand() % 18);
         moves.push_back(static_cast<MOVE>(selectMove));
         this->move(static_cast<MOVE>(selectMove));
-        cout<<getMove(static_cast<MOVE>(selectMove))<<endl;
-        this->print();
+        // cout<<getMove(static_cast<MOVE>(selectMove))<<endl;
+        // this->print();
     }
     return moves;
 }
