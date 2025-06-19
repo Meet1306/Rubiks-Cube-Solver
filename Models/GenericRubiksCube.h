@@ -1,7 +1,7 @@
 //
 // Created by Meet on 18-06-2025.
 //
-#include <bits\stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 #ifndef GENERICRUBIKSCUBE_H
@@ -37,7 +37,6 @@ public:
         B, BPRIME, B2
     };
 
-
     virtual COLOR getColor(FACE face, int row, int col) const = 0;
 
     static char getColorLetter(COLOR color);
@@ -50,11 +49,11 @@ public:
     //Print the cube in planar format
     void print() const;
 
-    vector<MOVE> randomShuffleCube(unsigned int times);
+    vector<MOVE> randomShuffleCube(int times);
 
     void move(MOVE ind);
 
-    void invert(MOVE ind);
+    // void invert(MOVE ind);
 
     /*
      * Rotational Moves on the Rubik Cubes
@@ -103,11 +102,11 @@ public:
 
     virtual void b2() = 0;
 
-    string getCornerColorString(uint8_t ind) const;
-
-    uint8_t getCornerIndex(uint8_t ind) const;
-
-    uint8_t getCornerOrientation(uint8_t ind) const;
+    // string getCornerColorString(uint8_t ind) const;
+    //
+    // uint8_t getCornerIndex(uint8_t ind) const;
+    //
+    // uint8_t getCornerOrientation(uint8_t ind) const;
 };
 
 
