@@ -131,7 +131,6 @@ void GenericRubiksCube::move(MOVE ind) {
 
 void GenericRubiksCube::print() const
 {
-
     //up face
     for (int i = 0; i < 3; i++)
     {
