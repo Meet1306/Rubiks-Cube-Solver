@@ -3,7 +3,7 @@ using namespace std;
 
 // #include "Models/Rubiks_3D_Model.cpp"
 // #include "Models/Rubiks_1D_Model.cpp"
-#include "Models/Rubiks_BitBoard_Model.cpp"
+// #include "Models/Rubiks_BitBoard_Model.cpp"
 int main() {
     // Rubiks_3D_Model cube;
     // cube.move(GenericRubiksCube::MOVE::R);
@@ -27,9 +27,9 @@ int main() {
     // cout<<cube.isSolved()<<endl;
 
 
-    Rubiks_BitBoard_Model cube;
-    cube.f();
-    cube.print();
+    // Rubiks_BitBoard_Model cube;
+    // cube.f();
+    // cube.print();
 
     // vector<GenericRubiksCube::MOVE> moves = cube.randomShuffleCube(10);
     // for (auto i: moves)

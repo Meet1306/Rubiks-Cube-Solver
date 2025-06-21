@@ -71,17 +71,13 @@ private:
     }
 
     COLOR getColor(FACE face, int row, int col) const override{
-        if (row==2 && col==2) return COLOR(int(face));
+        if (row==1 && col==1) return COLOR(int(face));
 
         long long num = arr[row][col];
         long long faceState = rubiks_cube[int(face)];
         long long cubie = ((faceState>>(8ll*num))&(0xFF));
 
         int cl = __builtin_ctzll(cubie); // count trailing zeros → gives color
-        // if (int(face)==0 && row==2 && col==2)
-        // {
-        //     cout<<"CL "<<cl<<endl;
-        // }
         return COLOR(cl);
     }
 
@@ -100,10 +96,8 @@ private:
             top[i] = getCubieColor(0, 4 + i);  // 4  5  6
 
         // LEFT → UP
-        setCubieColor(0, 4, getCubieColor(1, 2));
-        setCubieColor(0, 5, getCubieColor(1, 3));
-        setCubieColor(0, 6, getCubieColor(1, 4));
-
+        for (int i = 0; i < 3; i++)
+            setCubieColor(0, 4+i, getCubieColor(1, 2+i));
 
         // DOWN → LEFT
         for (int i = 0; i < 3; i++)
