@@ -34,7 +34,7 @@ private:
         }
     }
 
-    COLOR getColor(FACE face, int row, int col) const{
+    COLOR getColor(FACE face, int row, int col) const override{
         int curr_color = rubiks_cube[int(face)][row][col];
         switch (curr_color) {
             case 'B':
