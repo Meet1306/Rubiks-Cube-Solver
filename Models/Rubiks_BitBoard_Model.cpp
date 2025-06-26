@@ -31,9 +31,6 @@ private:
         // cout<<__builtin_ctzll(cl)<<endl;
     }
 
-    int arr[3][3] = {{0, 1, 2},
-                     {7, 8, 3},
-                     {6, 5, 4}};
 
     void faceRotation(int face) {
         //W G R B O Y W G
@@ -51,6 +48,9 @@ private:
     }
 
     public:
+    int arr[3][3] = {{0, 1, 2},
+                     {7, 8, 3},
+                     {6, 5, 4}};
 
     long long rubiks_cube[6];  // state of the rubiks cube
     Rubiks_BitBoard_Model() {
@@ -321,5 +321,49 @@ private:
         this->b();
     }
 
+    bool operator==(const Rubiks_BitBoard_Model& obj) const
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            if (rubiks_cube[i]!=obj.rubiks_cube[i]) return 0;
+        }
+        return 1;
+    }
+
+};
+
+struct HashBitBoard
+{
+    size_t operator()(const Rubiks_BitBoard_Model& obj) const
+    {
+        string s;
+        for (int i = 0;i<6;i++)
+        {
+            long long num = obj.rubiks_cube[i];
+            for (int j = 0;j<3;j++)
+            {
+                for (int k = 0;k<3;k++)
+                {
+                    if (j==1 && k==1)
+                    {
+                        char ch = obj.getColorLetter(GenericRubiksCube::COLOR(i));
+                        s.push_back(ch);
+                        continue;
+                    }
+                    long long idx_8 = obj.arr[j][k];
+                    long long one_8 = 0xFF;
+
+                    int cl = (num>>(idx_8*8))&one_8;
+
+                    int indx = __builtin_ctz(cl);
+                    char ch = obj.getColorLetter(GenericRubiksCube::COLOR(indx));
+                    s.push_back(ch);
+
+                }
+            }
+        }
+        return hash<string>()(s);
+
+    }
 };
 

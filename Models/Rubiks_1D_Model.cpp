@@ -340,4 +340,33 @@ private:
         this->b();
         this->b();
     }
+
+    bool operator==(const Rubiks_1D_Model& obj) const
+    {
+        for (int i = 0; i < 54; i++)
+        {
+            if (rubiks_cube[i] != obj.rubiks_cube[i]) return 0;
+        }
+        return 1;
+    }
+
+    // Rubiks_1D_Model &operator=(const Rubiks_1D_Model &obj)
+    // {
+    //     for (int i = 0; i < 54; i++)
+    //     {
+    //         rubiks_cube[i] = obj.rubiks_cube[i];
+    //     }
+    //     return *this;
+    // }
+};
+
+struct Hash1d
+{
+
+    size_t operator()(const Rubiks_1D_Model& obj) const
+    {
+        string s;
+        for (auto i : obj.rubiks_cube) s.push_back(i);
+        return hash<string>()(s);
+    }
 };

@@ -5,9 +5,15 @@ using namespace std;
 // #include "Models/Rubiks_1D_Model.cpp"
 // #include "Models/Rubiks_BitBoard_Model.cpp"
 int main() {
-    // Rubiks_3D_Model cube;
-    // cube.move(GenericRubiksCube::MOVE::R);
-    // cube.print();
+    // Rubiks_3D_Model cube1;
+    // cube1.move(GenericRubiksCube::MOVE::R);
+    // cube1.print();
+    //
+    // Rubiks_3D_Model cube2;
+    // cube2 = cube1;
+    // cube2.print();
+
+
     // vector<GenericRubiksCube::MOVE> moves = cube.randomShuffleCube(10);
     // cube.print();
     // if (cube.isSolved()) cout<<"Solved"<<endl;

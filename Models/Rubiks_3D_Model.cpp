@@ -314,4 +314,51 @@ private:
         this->b();
     }
 
+    bool operator==(const Rubiks_3D_Model& obj) const
+    {
+        for (int i = 0;i<6;i++)
+        {
+            for (int j = 0;j<3;j++)
+            {
+                for (int k = 0;k<3;k++)
+                {
+                    if (rubiks_cube[i][j][k] != obj.rubiks_cube[i][j][k]) return 0;
+                }
+            }
+        }
+        return 1;
+    }
+
+    // Rubiks_3D_Model &operator=(const Rubiks_3D_Model &obj) {
+    //     for (int i = 0; i < 6; i++) {
+    //         for (int j = 0; j < 3; j++) {
+    //             for (int k = 0; k < 3; k++) {
+    //                 rubiks_cube[i][j][k] = obj.rubiks_cube[i][j][k];
+    //             }
+    //         }
+    //     }
+    //     return *this;
+    // }
+
+};
+
+
+struct Hash3d
+{
+    size_t operator()(const Rubiks_3D_Model& obj) const
+    {
+        string s;
+        for (int i = 0; i < 6; i++)
+        {
+            for (int j = 0;j<3;j++)
+            {
+                for (int k = 0;k<3;k++)
+                {
+                    s.push_back(obj.rubiks_cube[i][j][k]);
+                }
+            }
+        }
+        return hash<string>()(s);
+    }
+
 };
