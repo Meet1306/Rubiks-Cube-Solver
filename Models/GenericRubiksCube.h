@@ -45,6 +45,7 @@ public:
 
     //Get Move in string
     static string getMove(MOVE ind);
+    static string getInverseMove(MOVE ind);
 
     //Print the cube in planar format
     void print() const;
@@ -52,6 +53,7 @@ public:
     vector<MOVE> randomShuffleCube(int times);
 
     void move(MOVE ind);
+    void invertMove(MOVE ind);
 
     // void invert(MOVE ind);
 
