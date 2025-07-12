@@ -13,7 +13,6 @@ private:
     GenericRubiksCube* cube;
     int max_d;
 
-
     bool iddfs(GenericRubiksCube* cube_state,int depth,int curr_max_depth);
 
 public:
@@ -21,7 +20,6 @@ public:
     IDDFS_Solver(GenericRubiksCube* _cube,int _max_d);
     vector<GenericRubiksCube::MOVE> solve();
 };
-
 
 
 #endif //IDDFS_SOLVER_H
