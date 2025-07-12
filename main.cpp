@@ -5,8 +5,9 @@ using namespace std;
 // #include "Models/Rubiks_1D_Model.cpp"
 #include "Models/Rubiks_BitBoard_Model.cpp"
 
-// #include "Solvers/DFS_Solver.h"
+#include "Solvers/DFS_Solver.h"
 #include "Solvers/BFS_Solver.h"
+#include "Solvers/IDDFS_Solver.h"
 int main() {
     // Rubiks_3D_Model cube1;
     // cube1.move(GenericRubiksCube::MOVE::R);
@@ -60,17 +61,17 @@ int main() {
 
 
     //DFS
-    // Rubiks_3D_Model cube;
-    // Rubiks_1D_Model cube;
+    // Rubiks_BitBoard_Model cube;
+    // // Rubiks_1D_Model cube;
     // cube.print();
     //
     // // Apply some moves to scramble
-    // cube.move(GenericRubiksCube::MOVE::L);
-    // cube.move(GenericRubiksCube::MOVE::B);
-    // cube.move(GenericRubiksCube::MOVE::U);
-    // // vector<GenericRubiksCube::MOVE> shuffle_moves = cube.randomShuffleCube(6);
-    // // for (auto move: shuffle_moves) cout << cube.getMove(move) << " ";
-    // // cout << "\n";
+    // // cube.move(GenericRubiksCube::MOVE::L);
+    // // cube.move(GenericRubiksCube::MOVE::B);
+    // // cube.move(GenericRubiksCube::MOVE::U);
+    // vector<GenericRubiksCube::MOVE> shuffle_moves = cube.randomShuffleCube(6);
+    // for (auto move: shuffle_moves) cout << cube.getMove(move) << " ";
+    // cout << "\n";
     // cout<<"After Scramble"<<endl;
     // cube.print();
     //
@@ -96,22 +97,41 @@ int main() {
     // }
 
 
-    //BFS
-    Rubiks_BitBoard_Model cube;
-    cube.print();
-    // cube.move(GenericRubiksCube::MOVE::L);
-    // cube.move(GenericRubiksCube::MOVE::B);
-    // cube.move(GenericRubiksCube::MOVE::U);
-    vector<GenericRubiksCube::MOVE> shuffle_moves = cube.randomShuffleCube(4);
-    for (auto move: shuffle_moves) cout << cube.getMove(move) << " ";
-    cout << "\n";
-    cout<<"After Scramble"<<endl;
-    cube.print();
+    // //BFS
+    // Rubiks_BitBoard_Model cube;
+    // // Rubiks_1D_Model cube;
+    // cube.print();
+    // // cube.move(GenericRubiksCube::MOVE::L);
+    // // cube.move(GenericRubiksCube::MOVE::B);
+    // // cube.move(GenericRubiksCube::MOVE::U);
+    // vector<GenericRubiksCube::MOVE> shuffle_moves = cube.randomShuffleCube(6);
+    // for (auto move: shuffle_moves) cout << cube.getMove(move) << " ";
+    // cout << "\n";
+    // cout<<"After Scramble"<<endl;
+    // cube.print();
+    //
+    // BFS_Solver<Rubiks_BitBoard_Model,HashBitBoard> solver(cube);
+    // vector<GenericRubiksCube::MOVE> moves = solver.solve();
+    // for (auto move: moves) cout << cube.getMove(move) << " ";
+    // cout << "\n";
 
-    BFS_Solver<Rubiks_BitBoard_Model,HashBitBoard> solver(cube);
-    vector<GenericRubiksCube::MOVE> moves = solver.solve();
-    for (auto move: moves) cout << cube.getMove(move) << " ";
-    cout << "\n";
+
+
+    // //IDDFS_Solver
+    // Rubiks_BitBoard_Model cube;
+    // vector<GenericRubiksCube::MOVE> moves = cube.randomShuffleCube(6);
+    // for (auto i : moves) {
+    //     cout<<GenericRubiksCube::getMove(i)<<" ";
+    // }
+    // cout<<endl;
+    //
+    // cube.print();
+    //
+    // IDDFS_Solver solver(&cube,7);
+    // vector<GenericRubiksCube::MOVE> solved_moves= solver.solve();
+    // for (auto i : solved_moves) {
+    //     cout<<GenericRubiksCube::getMove(i)<<" ";
+    // }
 
     return 0;
 }
