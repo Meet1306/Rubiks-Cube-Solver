@@ -13,6 +13,5 @@ add_executable(Rubiks_Cube_Solver main.cpp
         Solvers/BFS_Solver.h
         Solvers/IDDFS_Solver.cpp
         Solvers/IDDFS_Solver.h
-        Solvers/IDAstar_Solver.cpp
         Solvers/IDAstar_Solver.h
 )

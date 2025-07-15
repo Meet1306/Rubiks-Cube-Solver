@@ -1,8 +1,11 @@
 //
-// Created by konar on 12-07-2025.
+// Created by Meet on 12-07-2025.
 //
 
 #include "IDDFS_Solver.h"
+#include <bits/stdc++.h>
+using namespace std;
+
 
 IDDFS_Solver::IDDFS_Solver(GenericRubiksCube *_cube, int _max_d) : cube(_cube) , max_d(_max_d) {};
 

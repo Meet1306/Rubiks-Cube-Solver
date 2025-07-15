@@ -1,13 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// #include "Models/Rubiks_3D_Model.cpp"
+#include "Models/Rubiks_3D_Model.cpp"
 // #include "Models/Rubiks_1D_Model.cpp"
-#include "Models/Rubiks_BitBoard_Model.cpp"
+// #include "Models/Rubiks_BitBoard_Model.cpp"
 
 #include "Solvers/DFS_Solver.h"
 #include "Solvers/BFS_Solver.h"
 #include "Solvers/IDDFS_Solver.h"
+#include "Solvers/IDAstar_Solver.h"
 int main() {
     // Rubiks_3D_Model cube1;
     // cube1.move(GenericRubiksCube::MOVE::R);
@@ -128,6 +129,25 @@ int main() {
     // cube.print();
     //
     // IDDFS_Solver solver(&cube,7);
+    // vector<GenericRubiksCube::MOVE> solved_moves= solver.solve();
+    // for (auto i : solved_moves) {
+    //     cout<<GenericRubiksCube::getMove(i)<<" ";
+    // }
+
+
+
+
+    // //IDAstar_Solver
+    // Rubiks_3D_Model cube;
+    // vector<GenericRubiksCube::MOVE> moves = cube.randomShuffleCube(6);
+    // for (auto i : moves) {
+    //     cout<<GenericRubiksCube::getMove(i)<<" ";
+    // }
+    // cout<<endl;
+    // cube.print();
+    //
+    // IDAstar_Solver<Rubiks_3D_Model,Hash3d> solver(cube);
+    //
     // vector<GenericRubiksCube::MOVE> solved_moves= solver.solve();
     // for (auto i : solved_moves) {
     //     cout<<GenericRubiksCube::getMove(i)<<" ";
