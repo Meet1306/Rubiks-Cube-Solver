@@ -6,6 +6,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+Pattern_Database::Pattern_Database(const size_t size) :
+        database(size, 0xFF), size(size), numItems(0) {
+}
 
 Pattern_Database::Pattern_Database(long long size, uint8_t init_val) :
         database(size, init_val), size(size), numItems(0) {

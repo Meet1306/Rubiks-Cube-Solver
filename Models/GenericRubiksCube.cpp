@@ -299,3 +299,85 @@ vector<GenericRubiksCube::MOVE> GenericRubiksCube::randomShuffleCube(int times) 
 }
 
 
+//Gets the color string of the current corner index
+string GenericRubiksCube::getCornerColorString(uint8_t ind) const {
+    string str = "";
+
+    switch (ind) {
+        case 0:
+            str += getColorLetter(getColor(FACE::UP, 2, 2));
+            str += getColorLetter(getColor(FACE::FRONT, 0, 2));
+            str += getColorLetter(getColor(FACE::RIGHT, 0, 0));
+            break;
+
+        case 1:
+            str += getColorLetter(getColor(FACE::UP, 2, 0));
+            str += getColorLetter(getColor(FACE::FRONT, 0, 0));
+            str += getColorLetter(getColor(FACE::LEFT, 0, 2));
+            break;
+
+        case 3:
+            str += getColorLetter(getColor(FACE::UP, 0, 0));
+            str += getColorLetter(getColor(FACE::BACK, 0, 2));
+            str += getColorLetter(getColor(FACE::LEFT, 0, 0));
+            break;
+
+        case 2:
+            str += getColorLetter(getColor(FACE::UP, 0, 2));
+            str += getColorLetter(getColor(FACE::BACK, 0, 0));
+            str += getColorLetter(getColor(FACE::RIGHT, 0, 2));
+            break;
+
+        case 4:
+            str += getColorLetter(getColor(FACE::DOWN, 0, 2));
+            str += getColorLetter(getColor(FACE::FRONT, 2, 2));
+            str += getColorLetter(getColor(FACE::RIGHT, 2, 0));
+            break;
+
+        case 5:
+            str += getColorLetter(getColor(FACE::DOWN, 0, 0));
+            str += getColorLetter(getColor(FACE::FRONT, 2, 0));
+            str += getColorLetter(getColor(FACE::LEFT, 2, 2));
+            break;
+
+        case 6:
+            str += getColorLetter(getColor(FACE::DOWN, 2, 2));
+            str += getColorLetter(getColor(FACE::BACK, 2, 0));
+            str += getColorLetter(getColor(FACE::RIGHT, 2, 2));
+            break;
+
+        case 7:
+            str += getColorLetter(getColor(FACE::DOWN, 2, 0));
+            str += getColorLetter(getColor(FACE::BACK, 2, 2));
+            str += getColorLetter(getColor(FACE::LEFT, 2, 0));
+            break;
+    }
+    return str;
+}
+
+uint8_t GenericRubiksCube::getCornerIndex(uint8_t ind) const {
+    string corner = getCornerColorString(ind);
+
+    uint8_t ans = 0;
+    for (char c : corner) {
+        if (c == 'Y') ans |= (1 << 2);
+        if (c == 'O') ans |= (1 << 1);
+        if (c == 'G') ans |= (1 << 0);
+    }
+    return ans;
+}
+
+uint8_t GenericRubiksCube::getCornerOrientation(uint8_t ind) const {
+    string corner = getCornerColorString(ind);
+
+    int ans;
+    for (int i = 0;i<3;i++) {
+        if (corner[i]=='W' || corner[i]=='Y') {
+            ans=i;
+        }
+    }
+
+    return ans;
+}
+
+

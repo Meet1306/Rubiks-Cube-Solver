@@ -6,11 +6,12 @@
 #define NIBBLE_ARRAY_H
 
 #include <bits/stdc++.h>
+
 using namespace std;
 
 class Nibble_Array {
 private:
-    vector<uint8_t > v;
+    vector<uint8_t> v;
     int size;
 public:
     Nibble_Array(long long n, uint8_t val = 0xFF);  //0xFF for only if newSetValue is <oldSet than only set
@@ -19,9 +20,9 @@ public:
 
     void setVal(int index, int val);
 
-    unsigned char *data();
+    uint8_t *data();
 
-    const unsigned char *data() const;
+    const uint8_t *data() const;
 
     size_t storageSize() const;
 

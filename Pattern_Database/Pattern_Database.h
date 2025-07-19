@@ -16,6 +16,8 @@ public:
     long long size;
     long long numItems;
 
+    Pattern_Database(const size_t size);
+
     Pattern_Database(const long long size, uint8_t init_val);
 
     void toFile(const string &filePath) const;

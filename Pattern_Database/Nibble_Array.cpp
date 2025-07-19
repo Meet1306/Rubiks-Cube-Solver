@@ -40,6 +40,11 @@ const uint8_t *Nibble_Array::data() const {
     return this->v.data();
 }
 
+uint8_t* Nibble_Array::data() {
+    return this->v.data();  // <- Add this line!
+}
+
+
 size_t Nibble_Array::storageSize() const {
     return this->v.size();
 }
