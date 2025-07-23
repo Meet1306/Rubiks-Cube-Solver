@@ -3,9 +3,9 @@
 //
 
 #include "Corner_Pattern_Database.h"
-Corner_Pattern_Database::Corner_Pattern_Database() : Pattern_Database(100179840) {}
+Corner_Pattern_Database::Corner_Pattern_Database() : Pattern_Database(88179840) {}  //88179840 -> total corner configs
 
-Corner_Pattern_Database::Corner_Pattern_Database(uint8_t init_val) : Pattern_Database(100179840, init_val) {}
+Corner_Pattern_Database::Corner_Pattern_Database(uint8_t init_val) : Pattern_Database(88179840, init_val) {}
 
 uint32_t Corner_Pattern_Database::getDatabaseIndex(const GenericRubiksCube &cube) const {
     array<uint8_t, 8> cornerPermutation =

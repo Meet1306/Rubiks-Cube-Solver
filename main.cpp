@@ -1,18 +1,17 @@
 #include <bits/stdc++.h>
-
-#include "Pattern_Database/Corner_Pattern_Database.h"
 using namespace std;
 
 // #include "Models/Rubiks_3D_Model.cpp"
 // #include "Models/Rubiks_1D_Model.cpp"
 #include "Models/Rubiks_BitBoard_Model.cpp"
 
-// #include "Solvers/DFS_Solver.h"
-// #include "Solvers/BFS_Solver.h"
-// #include "Solvers/IDDFS_Solver.h"
-// #include "Solvers/IDAstar_Solver.h"
+#include "Solvers/DFS_Solver.h"
+#include "Solvers/BFS_Solver.h"
+#include "Solvers/IDDFS_Solver.h"
+#include "Solvers/IDAstar_Solver.h"
 
-#include "Pattern_Database/Pattern_Database.h"
+#include "Pattern_Database/Corner_Pattern_Database.h"
+// #include "Pattern_Database/Corner_DB_Maker.h"
 int main() {
     // Rubiks_3D_Model cube1;
     // cube1.move(GenericRubiksCube::MOVE::R);
@@ -189,6 +188,58 @@ int main() {
 
 
 
+    string fileName = "..\\Database\\cornerDepth.txt";
+
+    // Corner_Pattern_Database cornerDB;
+    // cornerDB.fromFile(fileName);
+    // Rubiks_BitBoard_Model cube;
+    // cube.print();
+    // vector<GenericRubiksCube::MOVE> moves = cube.randomShuffleCube(8);
+    // for (auto i : moves) {
+    //     cout<<cube.getMove(i)<<" ";
+    // }
+    // cout<<endl;
+    // cout << (int)cornerDB.getNumMoves(cube) << "\n";
+
+
+
+    // cornerDB.setNumMoves(cube, 5);
+    //
+    // cout << (int)cornerDB.getNumMoves(cube) << "\n";
+    //
+    // cube.randomShuffleCube(1);
+    // cube.print();
+    // cout << (int)cornerDB.getNumMoves(cube) << "\n";
+    //
+    // cornerDB.setNumMoves(cube, 6);
+    //
+    // cout << (int)cornerDB.getNumMoves(cube) << "\n";
+
+
+
+
+
+
+
+
+    // // Create Corner Database
+    // Corner_DB_Maker dbMaker(fileName, 0x66); //here 66 is the "nibble 6 and nibble 6" which indicates the underestimate for the cube whose depth is >= 6
+    // dbMaker.bfsAndStore();
+
+
+    Rubiks_BitBoard_Model cube;
+    cube.print();
+
+    auto shuffleMoves = cube.randomShuffleCube(10);
+    cube.print();
+    for (auto move: shuffleMoves) cout << cube.getMove(move) << " ";
+    cout << "\n";
+
+    IDAstar_Solver<Rubiks_BitBoard_Model, HashBitBoard> idaStarSolver(cube, fileName);
+    auto moves = idaStarSolver.solve();
+
+    for (auto move: moves) cout << cube.getMove(move) << " ";
+    cout << "\n";
 
 
     return 0;

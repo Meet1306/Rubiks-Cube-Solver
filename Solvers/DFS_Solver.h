@@ -19,7 +19,7 @@ private:
     vector<GenericRubiksCube::MOVE> solved_moves;
     GenericRubiksCube* cube;
     int max_depth;
-    bool dfsSolver(int dep,string parentMove)
+    bool dfsSolver(int dep)
     {
         //visited map doesn't work here
         if (cube->isSolved())
@@ -32,13 +32,11 @@ private:
         {
             auto mv = static_cast<GenericRubiksCube::MOVE>(i);
 
-            if (cube->getInverseMove(mv) == parentMove)
-                continue;
 
             cube->move(mv);
             solved_moves.push_back(mv);
 
-            if (dfsSolver(dep + 1, cube->getMove(mv)))
+            if (dfsSolver(dep + 1))
                 return true;
 
             cube->invertMove(mv);
@@ -56,7 +54,7 @@ public:
     vector<GenericRubiksCube::MOVE> solve()
     {
         solved_moves.clear();
-        dfsSolver(1,"");
+        dfsSolver(1);
         return solved_moves;
     }
 
