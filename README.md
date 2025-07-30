@@ -34,7 +34,7 @@ This project is an exploration into the computer science behind solving one of t
 
 ---
 
-## 🛠️ Technical Architecture
+## Technical Architecture
 
 ### Cube State Representations
 
@@ -47,6 +47,7 @@ The solver is templated to work with different cube models, each with distinct t
 ### Search Algorithms
 
 - **Uninformed Searches (BFS, DFS, IDDFS):** These algorithms systematically explore the cube's state space. While BFS and IDDFS can find optimal solutions, their performance degrades exponentially with scramble depth, making them suitable only for simple cases.
+
 - **Informed Search (IDA\*):** This is where the magic happens. IDA\* performs a series of depth-first searches with an increasing depth limit. The key is its heuristic function, $h(n)$, which estimates the distance to the goal. A move is only explored if $f(n) = g(n) + h(n) \le \text{depth\_limit}$, where $g(n)$ is the current path cost. This dramatically prunes the search tree.
 
 ### Pattern Database
@@ -116,8 +117,8 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 1.  **Clone the repository:**
 
-    ```sh
-    git clone [https://github.com/YOUR_USERNAME/YOUR_REPO.git](https://github.com/YOUR_USERNAME/YOUR_REPO.git)
+    ```bash
+    git clone https://github.com/Meet1306/Rubiks-Cube-Solver.git
     cd Rubiks-Cube-Solver
     ```
 
@@ -126,7 +127,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 3.  **Build the project using CMake:**
 
-    ```sh
+    ```bash
     mkdir build
     cd build
     cmake ..
@@ -134,28 +135,31 @@ Follow these instructions to get a copy of the project up and running on your lo
     ```
 
 4.  **Run the solver:**
-    ```sh
+    ```bash
     ./RubiksCubeSolver
     ```
 
 ### Generate Pattern Database (Optional)
 
-## You can regenerate the corner pattern database by building and running the `Corner_DB_Maker` utility.
+You can regenerate the corner pattern database by building and running the `Corner_DB_Maker` utility.
+
+---
 
 ## Usage Example
 
 ```cpp
 #include "Models/Rubiks_BitBoard_Model.cpp"
 #include "Solvers/IDAstar_Solver.h"
+#include <iostream>
 
 int main() {
     Rubiks_BitBoard_Model cube;
     auto shuffleMoves = cube.randomShuffleCube(10);
     cube.print();
-    IDAstar_Solver<Rubiks_BitBoard_Model, HashBitBoard> idaStarSolver(cube, "..\\Database\\cornerDepth.txt");
+    IDAstar_Solver<Rubiks_BitBoard_Model, HashBitBoard> idaStarSolver(cube, "../Database/cornerDepth.txt");
     auto moves = idaStarSolver.solve();
-    for (auto move: moves) cout << cube.getMove(move) << " ";
-    cout << "\n";
+    for (auto move: moves) std::cout << cube.getMove(move) << " ";
+    std::cout << "\n";
     return 0;
 }
 ```
