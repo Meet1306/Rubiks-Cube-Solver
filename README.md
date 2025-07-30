@@ -48,7 +48,7 @@ The solver is templated to work with different cube models, each with distinct t
 
 - **Uninformed Searches (BFS, DFS, IDDFS):** These algorithms systematically explore the cube's state space. While BFS and IDDFS can find optimal solutions, their performance degrades exponentially with scramble depth, making them suitable only for simple cases.
 
-- **Informed Search (IDA\*):** This is where the magic happens. IDA\* performs a series of depth-first searches with an increasing depth limit. The key is its heuristic function, $h(n)$, which estimates the distance to the goal. A move is only explored if $f(n) = g(n) + h(n) \le \text{depth\_limit}$, where $g(n)$ is the current path cost. This dramatically prunes the search tree.
+- **Informed Search (IDA\*):** This is where the magic happens. IDA\* performs a series of depth-first searches with an increasing depth limit. The key is its heuristic function, h(n), which estimates the distance to the goal. A move is only explored if f(n) = g(n) + h(n) <= depth_limit, where g(n) is the current path cost. This dramatically prunes the search tree.
 
 ### Pattern Database
 
